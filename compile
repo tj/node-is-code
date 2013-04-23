@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+// dump pygmentize -L into ./data
+
+var fs = require('fs');
+var read = fs.readFileSync;
+
+var str = read('data', 'utf8');
+
+var start = str.indexOf('* Clipper'); // first real language
+var end = str.indexOf('Formatters');
+str = str.slice(start, end);
+
+var langs = str.split(/^\* */gm);
+var out = [];
+
+langs.forEach(function(lang){
+  var lines = lang.split('\n');
+  var name = lines.shift();
+  var desc = lines.shift();
+  if (!name || !desc) return;
+
+  // "foo, bar, baz:""
+  var names = name.replace(/:$/, '').split(/ *, */);
+
+  // (filenames *.foo, *.bar)
+  var m = desc.match(/\(filenames *(.*?)\)/);
+  if (!m) return;
+  var matches = m[1].split(/ *, */);
+
+  out.push({
+    names: names,
+    matches: matches
+  });
+});
+
+out = JSON.stringify(out);
+console.log(out);
