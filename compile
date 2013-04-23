@@ -30,7 +30,7 @@ langs.forEach(function(lang){
 
   out.push({
     names: names,
-    matches: matches.map(toRegexp)
+    regexps: matches.map(toRegexp)
   });
 });
 
