@@ -30,9 +30,17 @@ langs.forEach(function(lang){
 
   out.push({
     names: names,
-    matches: matches
+    matches: matches.map(toRegexp)
   });
 });
 
-out = JSON.stringify(out);
+function toRegexp(str) {
+  var re = str
+    .replace(/\./g, '\\.')
+    .replace(/\+/g, '\\+')
+    .replace(/\*/g, '.+')
+
+  return new RegExp('^' + re + '$');
+}
+
 console.log(out);
