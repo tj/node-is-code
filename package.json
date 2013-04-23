@@ -12,5 +12,10 @@
   "repository": "",
   "author": "",
   "license": "MIT",
-  "gitHead": "440e2e7ef2cb930f17c4d40a505b91c009a56f70"
+  "gitHead": "440e2e7ef2cb930f17c4d40a505b91c009a56f70",
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.9.0",
+    "better-assert": "~1.0.0"
+  }
 }
