@@ -3,7 +3,9 @@
 
   Check if a given path looks like code (that can be parsed by pygments).
 
-## isCode(path)
+## API
+
+### isCode(path)
 
 ```js
 var isCode = require('is-code');
