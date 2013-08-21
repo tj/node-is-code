@@ -9,7 +9,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/visionmedia/node-is-code.git"
+  },
   "author": "",
   "license": "MIT",
   "gitHead": "440e2e7ef2cb930f17c4d40a505b91c009a56f70",
